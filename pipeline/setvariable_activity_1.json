@@ -1,0 +1,107 @@
+{
+	"name": "setvariable_activity_1",
+	"properties": {
+		"activities": [
+			{
+				"name": "getaccno",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "AccoutNo",
+					"value": "50100223095920"
+				}
+			},
+			{
+				"name": "getName",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getaccno",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "AccountholderName",
+					"value": "Srisai Kumarc.Challa"
+				}
+			},
+			{
+				"name": "getBranch",
+				"description": "",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getName",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Branch",
+					"value": "Vellachery"
+				}
+			},
+			{
+				"name": "getMsg",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getBranch",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Msg",
+					"value": {
+						"value": "@concat('Bank Account No is ',variables('AccoutNo'),\n        'Account holder Name is ',variables('AccountholderName'),\n        'IFSC code is ',variables('IFSCCode'),\n        ' and Barnch is ',variables('Branch')\n       )",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"AccoutNo": {
+				"type": "String"
+			},
+			"AccountholderName": {
+				"type": "String"
+			},
+			"IFSCCode": {
+				"type": "String",
+				"defaultValue": "HDFC0000444"
+			},
+			"Branch": {
+				"type": "String"
+			},
+			"Msg": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
