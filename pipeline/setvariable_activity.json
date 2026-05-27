@@ -60,7 +60,7 @@
 				}
 			},
 			{
-				"name": "GetLocation",
+				"name": "GetLoc",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -85,7 +85,7 @@
 				"type": "SetVariable",
 				"dependsOn": [
 					{
-						"activity": "GetLocation",
+						"activity": "GetLoc",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -99,7 +99,7 @@
 				"typeProperties": {
 					"variableName": "Msg",
 					"value": {
-						"value": "@concat(\n    'Employee id is',variables('EmpID'),\n    ',Employee Name is',variables('EmpName'),\n    ',Gender is ',variables('Gneder'),\n    ' and Location is ',variables('Location')\n)",
+						"value": "@concat(\n    'Employee id is ',variables('EmpID'),\n    ',Employee Name is ',variables('EmpName'),\n    ',Gender is ',variables('Gneder'),\n    ' and Location is ',variables('Location')\n)",
 						"type": "Expression"
 					}
 				}
