@@ -1,0 +1,129 @@
+{
+	"name": "setvariable_activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "getEmpID",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "EmpID",
+					"value": "APTOL301690"
+				}
+			},
+			{
+				"name": "GetEmpName",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getEmpID",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "EmpName",
+					"value": "SriSaiKumar.challa"
+				}
+			},
+			{
+				"name": "GetGender",
+				"description": "Male",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "GetEmpName",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Gneder",
+					"value": "Male"
+				}
+			},
+			{
+				"name": "GetLocation",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "GetGender",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Location",
+					"value": "Hyderabad"
+				}
+			},
+			{
+				"name": "GetMsg",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "GetLocation",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Msg",
+					"value": {
+						"value": "@concat(\n    'Employee id is :',variables('EmpID'),\n    ',Employee Name is :',variables('EmpName'),\n    ',Gender is :',variables('Gneder'),\n    ' and Location is :',variables('Location')\n)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"EmpID": {
+				"type": "String"
+			},
+			"EmpName": {
+				"type": "String"
+			},
+			"Gneder": {
+				"type": "String"
+			},
+			"Location": {
+				"type": "String"
+			},
+			"Msg": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-05-27T07:02:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

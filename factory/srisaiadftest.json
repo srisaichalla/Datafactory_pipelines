@@ -1,0 +1,15 @@
+{
+	"name": "srisaiadftest",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e0ee22c7-9c1b-4e82-8507-02dd01943d37",
+		"tenantId": "0576da7f-8d1d-4bcb-a7ce-622aa8a23abc"
+	}
+}
