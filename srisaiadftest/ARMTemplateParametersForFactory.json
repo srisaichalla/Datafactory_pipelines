@@ -4,6 +4,12 @@
 	"parameters": {
 		"factoryName": {
 			"value": "srisaiadftest"
+		},
+		"Ls_gen2lake_accountKey": {
+			"value": ""
+		},
+		"Ls_gen2lake_properties_typeProperties_url": {
+			"value": "https://srisaistgaccountsample.dfs.core.windows.net/"
 		}
 	}
 }
