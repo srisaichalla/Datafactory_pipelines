@@ -78,7 +78,7 @@
 				"typeProperties": {
 					"variableName": "Msg",
 					"value": {
-						"value": "@concat('Bank Account No is ',variables('AccoutNo'),\n        'Account holder Name is ',variables('AccountholderName'),\n        'IFSC code is ',variables('IFSCCode'),\n        ' and Barnch is ',variables('Branch')\n       )",
+						"value": "@concat('Bank Account No is ',variables('AccoutNo'),\n        ',Account holder Name is ',variables('AccountholderName'),\n        ',IFSC code is ',variables('IFSCCode'),\n        ' and Barnch is ',variables('Branch')\n       )",
 						"type": "Expression"
 					}
 				}
