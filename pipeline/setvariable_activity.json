@@ -60,7 +60,7 @@
 				}
 			},
 			{
-				"name": "GetLocation",
+				"name": "GetLoc",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -85,7 +85,7 @@
 				"type": "SetVariable",
 				"dependsOn": [
 					{
-						"activity": "GetLocation",
+						"activity": "GetLoc",
 						"dependencyConditions": [
 							"Succeeded"
 						]
