@@ -1,0 +1,89 @@
+{
+	"name": "copy_activity_wildcardpath_1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "getfiledt",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFolderPath": "inbound",
+							"wildcardFileName": {
+								"value": "@concat('*',variables('filedt'),'*')",
+								"type": "Expression"
+							},
+							"deleteFilesAfterCompletion": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_source_wild",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_sink_wild",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "getfiledt",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "filedt",
+					"value": {
+						"value": "@concat(formatDateTime(adddays(utcNow(),-1),'ddMMyyyy'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"filedt": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-05-27T11:28:05Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

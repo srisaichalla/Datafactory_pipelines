@@ -1,0 +1,156 @@
+{
+	"name": "copy_activity_parameters",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "getFile",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Ds_src_parameter",
+						"type": "DatasetReference",
+						"parameters": {
+							"p_container": {
+								"value": "@variables('container_name')",
+								"type": "Expression"
+							},
+							"p_folder": {
+								"value": "@variables('folder_name')",
+								"type": "Expression"
+							},
+							"p_file": {
+								"value": "@variables('file_name')",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Ds_sink",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "getcontainer",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "container_name",
+					"value": "devcontainer"
+				}
+			},
+			{
+				"name": "getFolfder",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getcontainer",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "folder_name",
+					"value": "inbound"
+				}
+			},
+			{
+				"name": "getFile",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getFolfder",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "file_name",
+					"value": "cust_dept.csv"
+				}
+			}
+		],
+		"variables": {
+			"container_name": {
+				"type": "String"
+			},
+			"folder_name": {
+				"type": "String"
+			},
+			"file_name": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-05-27T08:27:38Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
