@@ -111,7 +111,17 @@
 							"outputs": [
 								{
 									"referenceName": "Ds_sink_parameters",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"foldername": {
+											"value": "@split(item().name,'_')[0]",
+											"type": "Expression"
+										},
+										"folderdate": {
+											"value": "@split(split(item().name,'_')[1],'.')[0]",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
