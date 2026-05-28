@@ -1,5 +1,5 @@
 {
-	"name": "getmetadata_activity_copyfiles_1",
+	"name": "getmetadata_activity_copyfiles_2",
 	"properties": {
 		"activities": [
 			{
@@ -110,14 +110,8 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Ds_sink_parameter",
-									"type": "DatasetReference",
-									"parameters": {
-										"p_folder": {
-											"value": "@split(item().name,'_')[0]",
-											"type": "Expression"
-										}
-									}
+									"referenceName": "Ds_sink_parameters",
+									"type": "DatasetReference"
 								}
 							]
 						}
