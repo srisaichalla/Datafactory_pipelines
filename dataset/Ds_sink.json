@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@concat('outbound/','csv')",
+					"value": "@concat('outbound/','json')",
 					"type": "Expression"
 				},
 				"fileSystem": "devcontainer"
