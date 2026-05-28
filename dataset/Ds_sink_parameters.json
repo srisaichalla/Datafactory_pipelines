@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@concat('outbound/',dataset().foldername,'/',dataset().folderdate)",
+					"value": "@concat('outbound/',dataset().folderdate,'/',dataset().foldername)",
 					"type": "Expression"
 				},
 				"fileSystem": "devcontainer"
