@@ -10,7 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "outbound",
+				"folderPath": {
+					"value": "@concat('outbound/','csv')",
+					"type": "Expression"
+				},
 				"fileSystem": "devcontainer"
 			},
 			"columnDelimiter": ",",
