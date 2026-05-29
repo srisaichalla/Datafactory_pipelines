@@ -7,17 +7,29 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "srisaiadftest"
 		},
-		"Ls_gen2lake_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'Ls_gen2lake'"
-		},
 		"Ls_AzureSqlDb_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'Ls_AzureSqlDb'"
 		},
-		"Ls_gen2lake_properties_typeProperties_url": {
+		"Ls_gen2lake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Ls_gen2lake'"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_server": {
 			"type": "string",
-			"defaultValue": "https://srisaistgaccountsample.dfs.core.windows.net/"
+			"defaultValue": "pvrsqlserverpractice.database.windows.net"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "pvr_sqldb_practice"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "srinivas"
+		},
+		"Ls_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://srisaikeyvault.vault.azure.net/"
 		},
 		"Ls_AzureSqlDb_properties_typeProperties_server": {
 			"type": "string",
@@ -30,6 +42,10 @@
 		"Ls_AzureSqlDb_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "srinivas"
+		},
+		"Ls_gen2lake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srisaistgaccountsample.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -58,14 +74,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"Ls_gen2lake_accountKey": {
-						"value": "[parameters('Ls_gen2lake_accountKey')]"
-					},
 					"Ls_AzureSqlDb_password": {
 						"value": "[parameters('Ls_AzureSqlDb_password')]"
 					},
-					"Ls_gen2lake_properties_typeProperties_url": {
-						"value": "[parameters('Ls_gen2lake_properties_typeProperties_url')]"
+					"Ls_gen2lake_accountKey": {
+						"value": "[parameters('Ls_gen2lake_accountKey')]"
+					},
+					"Ls_AzureKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('Ls_AzureKeyVault_properties_typeProperties_baseUrl')]"
 					},
 					"Ls_AzureSqlDb_properties_typeProperties_server": {
 						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_server')]"
@@ -75,6 +91,18 @@
 					},
 					"Ls_AzureSqlDb_properties_typeProperties_userName": {
 						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_userName')]"
+					},
+					"Ls_gen2lake_properties_typeProperties_url": {
+						"value": "[parameters('Ls_gen2lake_properties_typeProperties_url')]"
+					},
+					"L_AzureSqldb_kv_properties_typeProperties_server": {
+						"value": "[parameters('L_AzureSqldb_kv_properties_typeProperties_server')]"
+					},
+					"L_AzureSqldb_kv_properties_typeProperties_database": {
+						"value": "[parameters('L_AzureSqldb_kv_properties_typeProperties_database')]"
+					},
+					"L_AzureSqldb_kv_properties_typeProperties_userName": {
+						"value": "[parameters('L_AzureSqldb_kv_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -98,6 +126,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'srisaiadftest_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "srisaiadftest_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'srisaiadftest_ArmTemplate_1')]"
 			]
 		}
 	]
