@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "dept.csv",
 				"folderPath": "outbound",
 				"fileSystem": "devcontainer"
 			},
