@@ -1,0 +1,25 @@
+{
+	"name": "Ds_AzureSqldb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_AzureSqlDb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "dept_id",
+				"type": "varchar"
+			},
+			{
+				"name": "dept_name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "source",
+			"table": "dept"
+		}
+	}
+}

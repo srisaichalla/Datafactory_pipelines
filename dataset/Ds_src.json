@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "orders",
+				"fileName": "dept.csv",
+				"folderPath": "inbound",
 				"fileSystem": "devcontainer"
 			},
 			"columnDelimiter": ",",
