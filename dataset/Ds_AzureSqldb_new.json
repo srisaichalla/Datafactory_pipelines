@@ -1,0 +1,24 @@
+{
+	"name": "Ds_AzureSqldb_new",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_AzureSqlDb",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tbl_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "source",
+			"table": {
+				"value": "@dataset().tbl_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
