@@ -49,7 +49,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Ds_sink",
+						"referenceName": "Ds_sink_gen2",
 						"type": "DatasetReference"
 					}
 				]

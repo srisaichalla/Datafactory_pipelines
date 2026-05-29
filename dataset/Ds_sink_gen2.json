@@ -1,0 +1,37 @@
+{
+	"name": "Ds_sink_gen2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_gen2lake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "dept.csv",
+				"folderPath": "outbound",
+				"fileSystem": "devcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "dept_id",
+				"type": "String"
+			},
+			{
+				"name": "dept_name",
+				"type": "String"
+			},
+			{
+				"name": "loc",
+				"type": "String"
+			}
+		]
+	}
+}
