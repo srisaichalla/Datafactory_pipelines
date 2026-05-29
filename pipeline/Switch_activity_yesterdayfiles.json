@@ -150,10 +150,7 @@
 														"referenceName": "Ds_sink_parameters",
 														"type": "DatasetReference",
 														"parameters": {
-															"foldername": {
-																"value": "@split(split(item().name,'_')[1],'.')[1]",
-																"type": "Expression"
-															},
+															"foldername": "TEXT",
 															"folderdate": {
 																"value": "@split(item().name,'_')[0]",
 																"type": "Expression"
@@ -231,10 +228,7 @@
 														"referenceName": "Ds_sink_parameters",
 														"type": "DatasetReference",
 														"parameters": {
-															"foldername": {
-																"value": "@split(split(item().name,'_')[1],'.')[1]",
-																"type": "Expression"
-															},
+															"foldername": "CSV",
 															"folderdate": {
 																"value": "@split(item().name,'_')[0]",
 																"type": "Expression"
@@ -312,10 +306,7 @@
 														"referenceName": "Ds_sink_parameters",
 														"type": "DatasetReference",
 														"parameters": {
-															"foldername": {
-																"value": "@split(split(item().name,'_')[1],'.')[1]",
-																"type": "Expression"
-															},
+															"foldername": "JSON",
 															"folderdate": {
 																"value": "@split(item().name,'_')[0]",
 																"type": "Expression"
