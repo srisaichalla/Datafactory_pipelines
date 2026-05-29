@@ -8,8 +8,20 @@
 		"Ls_gen2lake_accountKey": {
 			"value": ""
 		},
+		"Ls_AzureSqlDb_password": {
+			"value": ""
+		},
 		"Ls_gen2lake_properties_typeProperties_url": {
 			"value": "https://srisaistgaccountsample.dfs.core.windows.net/"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_server": {
+			"value": "pvrsqlserverpractice.database.windows.net"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_database": {
+			"value": "pvr_sqldb_practice"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_userName": {
+			"value": "srinivas"
 		},
 		"containerUri": {
 			"value": ""

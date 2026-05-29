@@ -11,9 +11,25 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'Ls_gen2lake'"
 		},
+		"Ls_AzureSqlDb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Ls_AzureSqlDb'"
+		},
 		"Ls_gen2lake_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://srisaistgaccountsample.dfs.core.windows.net/"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "pvrsqlserverpractice.database.windows.net"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "pvr_sqldb_practice"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "srinivas"
 		},
 		"containerUri": {
 			"type": "string",
@@ -45,8 +61,20 @@
 					"Ls_gen2lake_accountKey": {
 						"value": "[parameters('Ls_gen2lake_accountKey')]"
 					},
+					"Ls_AzureSqlDb_password": {
+						"value": "[parameters('Ls_AzureSqlDb_password')]"
+					},
 					"Ls_gen2lake_properties_typeProperties_url": {
 						"value": "[parameters('Ls_gen2lake_properties_typeProperties_url')]"
+					},
+					"Ls_AzureSqlDb_properties_typeProperties_server": {
+						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_server')]"
+					},
+					"Ls_AzureSqlDb_properties_typeProperties_database": {
+						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_database')]"
+					},
+					"Ls_AzureSqlDb_properties_typeProperties_userName": {
+						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_userName')]"
 					}
 				}
 			},
