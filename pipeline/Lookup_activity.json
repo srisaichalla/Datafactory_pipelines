@@ -5,8 +5,6 @@
 			{
 				"name": "Lookup",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -19,7 +17,17 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "insert into source.dept values('D5','Accounts')\nselect * from source.dept\n",
+						"sqlReaderStoredProcedureName": "[dbo].[update_dept_dtls]",
+						"storedProcedureParameters": {
+							"dept_id": {
+								"type": "String",
+								"value": "D1"
+							},
+							"dept_name": {
+								"type": "String",
+								"value": "Accounting"
+							}
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -33,6 +41,8 @@
 			{
 				"name": "Script",
 				"type": "Script",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -50,7 +60,7 @@
 					"scripts": [
 						{
 							"type": "Query",
-							"text": "select * from source.dept"
+							"text": "update source.dept set dept_name='Admin' where dept_id='D5'"
 						}
 					],
 					"scriptBlockExecutionTimeout": "02:00:00"
