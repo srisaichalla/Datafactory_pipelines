@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "srisaiadfpractice"
+		},
+		"Ls_AzureSqlDb_password": {
+			"value": ""
+		},
+		"Ls_gen2lake_accountKey": {
+			"value": ""
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_server": {
+			"value": "pvrsqlserverpractice.database.windows.net"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_database": {
+			"value": "pvr_sqldb_practice"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_userName": {
+			"value": "srinivas"
+		},
+		"Ls_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://srisaikeyvault.vault.azure.net/"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_server": {
+			"value": "pvrsqlserverpractice.database.windows.net"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_database": {
+			"value": "pvr_sqldb_practice"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_userName": {
+			"value": "srinivas"
+		},
+		"Ls_gen2lake_properties_typeProperties_url": {
+			"value": "https://srisaistgaccountsample.dfs.core.windows.net/"
+		}
+	}
+}
