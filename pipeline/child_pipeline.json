@@ -13,10 +13,55 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "msg",
-					"value": "this is child pipeline"
+					"value": {
+						"value": "@concat(' Person id is ',pipeline().parameters.prsn_id,\n       ', Person name is ',pipeline().parameters.prsn_nm,\n       ' , Person loc is ',pipeline().parameters.prsn_loc,\n       ' and  Person country is ',pipeline().globalParameters.prsn_country\n       )",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getMessage",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "status",
+							"value": {
+								"type": "String",
+								"content": "success"
+							}
+						}
+					],
+					"setSystemVariable": true
 				}
 			}
 		],
+		"parameters": {
+			"prsn_id": {
+				"type": "string"
+			},
+			"prsn_nm": {
+				"type": "string"
+			},
+			"prsn_loc": {
+				"type": "string",
+				"defaultValue": "Chennai"
+			}
+		},
 		"variables": {
 			"msg": {
 				"type": "String"
