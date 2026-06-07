@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(variables('getflagvalue'),true)",
+						"value": "@equals(variables('getflagvalue'),'true')",
 						"type": "Expression"
 					},
 					"activities": [
