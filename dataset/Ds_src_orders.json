@@ -1,0 +1,41 @@
+{
+	"name": "Ds_src_orders",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_gen2lake_latest",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "orders.csv",
+				"folderPath": "inbound",
+				"fileSystem": "devcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "order_id",
+				"type": "String"
+			},
+			{
+				"name": "cust_id",
+				"type": "String"
+			},
+			{
+				"name": "orde_amt",
+				"type": "String"
+			},
+			{
+				"name": "order_dt",
+				"type": "String"
+			}
+		]
+	}
+}
