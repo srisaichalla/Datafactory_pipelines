@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "products_28052026.csv",
 				"folderPath": "inbound",
 				"fileSystem": "devcontainer"
 			},
