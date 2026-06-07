@@ -1,0 +1,16 @@
+{
+	"name": "ds_outbound_parm_latest",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_gen2lake_latest",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			}
+		}
+	}
+}
