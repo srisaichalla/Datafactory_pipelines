@@ -1,0 +1,42 @@
+{
+	"name": "pipeline_parameters",
+	"properties": {
+		"activities": [
+			{
+				"name": "getMessage",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Msg",
+					"value": {
+						"value": "@concat(' Person id is ',pipeline().parameters.prsn_id,\n        ' , person name is ',pipeline().parameters.prsn_nm,\n        ' , location is ',pipeline().parameters.prsn_loc,\n        ' and country is ',pipeline().globalParameters.prsn_country\n\n)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"prsn_id": {
+				"type": "string"
+			},
+			"prsn_nm": {
+				"type": "string"
+			},
+			"prsn_loc": {
+				"type": "string",
+				"defaultValue": "Hyd"
+			}
+		},
+		"variables": {
+			"Msg": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
