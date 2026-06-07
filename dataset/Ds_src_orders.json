@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "orders.csv",
+				"fileName": "orders_new.csv",
 				"folderPath": "inbound",
 				"fileSystem": "devcontainer"
 			},
