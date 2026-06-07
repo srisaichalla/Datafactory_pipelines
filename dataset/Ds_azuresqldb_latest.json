@@ -1,0 +1,16 @@
+{
+	"name": "Ds_azuresqldb_latest",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_Azuresqldb_latest",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "source",
+			"table": "orders"
+		}
+	}
+}
