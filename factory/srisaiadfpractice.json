@@ -1,6 +1,12 @@
 {
 	"name": "srisaiadfpractice",
 	"properties": {
+		"globalParameters": {
+			"prsn_country": {
+				"type": "string",
+				"value": "India"
+			}
+		},
 		"trustModeClaimForMi": {
 			"value": "Disabled",
 			"editable": true
