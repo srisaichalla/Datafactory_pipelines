@@ -169,14 +169,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "getflagvalue",
-					"value": ""
+					"value": "false"
 				}
 			}
 		],
 		"variables": {
 			"getflagvalue": {
-				"type": "String",
-				"defaultValue": "false"
+				"type": "String"
 			}
 		},
 		"annotations": []
