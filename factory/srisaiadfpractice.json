@@ -1,0 +1,15 @@
+{
+	"name": "srisaiadfpractice",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5f1d4da0-0af4-44fd-beef-ab8b91011f1b",
+		"tenantId": "98fd571a-6b83-4089-bd54-42a14fffde89"
+	}
+}
