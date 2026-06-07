@@ -1,8 +1,8 @@
 {
-	"name": "ds_inbound_getmeta",
+	"name": "Ds_inbound_gm_latest",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Ls_gen2lake",
+			"referenceName": "Ls_gen2lake_latest",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -20,6 +20,10 @@
 			"quoteChar": "\""
 		},
 		"schema": [
+			{
+				"name": "order_id",
+				"type": "String"
+			},
 			{
 				"name": "cust_id",
 				"type": "String"
