@@ -1,0 +1,27 @@
+{
+	"name": "child_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "getMessage",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "msg",
+					"value": "this is child pipeline"
+				}
+			}
+		],
+		"variables": {
+			"msg": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
