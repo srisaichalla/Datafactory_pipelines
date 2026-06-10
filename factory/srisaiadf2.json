@@ -1,0 +1,15 @@
+{
+	"name": "srisaiadf2",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "50ba3679-c3be-45f2-8a5a-52a8bdc9256c",
+		"tenantId": "98fd571a-6b83-4089-bd54-42a14fffde89"
+	}
+}
