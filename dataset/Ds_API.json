@@ -1,0 +1,15 @@
+{
+	"name": "Ds_API",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "rest_api",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "api/v1/employees"
+		},
+		"schema": []
+	}
+}

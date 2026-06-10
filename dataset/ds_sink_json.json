@@ -1,0 +1,20 @@
+{
+	"name": "ds_sink_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_gen2lake_latest",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "employee.json",
+				"folderPath": "outbound",
+				"fileSystem": "devcontainer"
+			}
+		},
+		"schema": {}
+	}
+}
