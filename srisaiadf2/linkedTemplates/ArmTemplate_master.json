@@ -1,0 +1,214 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "srisaiadf2"
+		},
+		"Ls_AzureSqlDb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Ls_AzureSqlDb'"
+		},
+		"Ls_Azuresqldb_latest_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Ls_Azuresqldb_latest'"
+		},
+		"Ls_gen2lake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Ls_gen2lake'"
+		},
+		"Ls_gen2lake_latest_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Ls_gen2lake_latest'"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "pvrsqlserverpractice.database.windows.net"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "pvr_sqldb_practice"
+		},
+		"L_AzureSqldb_kv_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "srinivas"
+		},
+		"Ls_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://srisaikeyvault.vault.azure.net/"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "pvrsqlserverpractice.database.windows.net"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "pvr_sqldb_practice"
+		},
+		"Ls_AzureSqlDb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "srinivas"
+		},
+		"Ls_Azuresqldb_latest_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "srisaiazuresqlserver1.database.windows.net"
+		},
+		"Ls_Azuresqldb_latest_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "srisaisqldatabase"
+		},
+		"Ls_Azuresqldb_latest_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "srisai"
+		},
+		"Ls_gen2lake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srisaistgaccountsample.dfs.core.windows.net/"
+		},
+		"Ls_gen2lake_latest_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srisaiztorageaccount.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "srisaiadf2_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Ls_AzureSqlDb_password": {
+						"value": "[parameters('Ls_AzureSqlDb_password')]"
+					},
+					"Ls_Azuresqldb_latest_password": {
+						"value": "[parameters('Ls_Azuresqldb_latest_password')]"
+					},
+					"Ls_gen2lake_accountKey": {
+						"value": "[parameters('Ls_gen2lake_accountKey')]"
+					},
+					"Ls_gen2lake_latest_accountKey": {
+						"value": "[parameters('Ls_gen2lake_latest_accountKey')]"
+					},
+					"Ls_AzureKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('Ls_AzureKeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"Ls_AzureSqlDb_properties_typeProperties_server": {
+						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_server')]"
+					},
+					"Ls_AzureSqlDb_properties_typeProperties_database": {
+						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_database')]"
+					},
+					"Ls_AzureSqlDb_properties_typeProperties_userName": {
+						"value": "[parameters('Ls_AzureSqlDb_properties_typeProperties_userName')]"
+					},
+					"Ls_Azuresqldb_latest_properties_typeProperties_server": {
+						"value": "[parameters('Ls_Azuresqldb_latest_properties_typeProperties_server')]"
+					},
+					"Ls_Azuresqldb_latest_properties_typeProperties_database": {
+						"value": "[parameters('Ls_Azuresqldb_latest_properties_typeProperties_database')]"
+					},
+					"Ls_Azuresqldb_latest_properties_typeProperties_userName": {
+						"value": "[parameters('Ls_Azuresqldb_latest_properties_typeProperties_userName')]"
+					},
+					"Ls_gen2lake_properties_typeProperties_url": {
+						"value": "[parameters('Ls_gen2lake_properties_typeProperties_url')]"
+					},
+					"Ls_gen2lake_latest_properties_typeProperties_url": {
+						"value": "[parameters('Ls_gen2lake_latest_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "srisaiadf2_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"L_AzureSqldb_kv_properties_typeProperties_server": {
+						"value": "[parameters('L_AzureSqldb_kv_properties_typeProperties_server')]"
+					},
+					"L_AzureSqldb_kv_properties_typeProperties_database": {
+						"value": "[parameters('L_AzureSqldb_kv_properties_typeProperties_database')]"
+					},
+					"L_AzureSqldb_kv_properties_typeProperties_userName": {
+						"value": "[parameters('L_AzureSqldb_kv_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'srisaiadf2_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "srisaiadf2_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'srisaiadf2_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "srisaiadf2_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'srisaiadf2_ArmTemplate_2')]"
+			]
+		}
+	]
+}
