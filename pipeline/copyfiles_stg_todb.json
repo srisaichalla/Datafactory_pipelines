@@ -1,9 +1,9 @@
 {
-	"name": "copyfiles_source_sink",
+	"name": "copyfiles_stg_todb",
 	"properties": {
 		"activities": [
 			{
-				"name": "copyfiles",
+				"name": "Copy files to tables",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -27,15 +27,9 @@
 						}
 					},
 					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -53,14 +47,14 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"p_container": "devcontainer",
-							"P_folder": "inbound",
+							"P_folder": "outbound",
 							"P_file": "sales.csv"
 						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "sink_csv",
+						"referenceName": "Ds_azuresqldb_latest",
 						"type": "DatasetReference"
 					}
 				]
