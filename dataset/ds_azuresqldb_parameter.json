@@ -1,0 +1,33 @@
+{
+	"name": "ds_azuresqldb_parameter",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_AzureSldb_parameter",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"db_nm": {
+					"value": "@dataset().dbname",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"dbname": {
+				"type": "string"
+			},
+			"tblname": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().tblname",
+				"type": "Expression"
+			}
+		}
+	}
+}

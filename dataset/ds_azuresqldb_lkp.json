@@ -1,0 +1,29 @@
+{
+	"name": "ds_azuresqldb_lkp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_azuresqldb_lkp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "srcdb",
+				"type": "varchar"
+			},
+			{
+				"name": "srctbl",
+				"type": "varchar"
+			},
+			{
+				"name": "tgtfilenm",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "cntl_tbl"
+		}
+	}
+}
